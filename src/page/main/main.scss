@@ -1,0 +1,86 @@
+.wrapper {
+  margin: 0 auto;
+}
+
+.AboutMaster {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+
+  &__container {
+    display: flex;
+    width: 100%;
+  }
+
+  &__photo {
+    width: 332px;
+    height: 332px;
+    border-radius: 50%;
+  }
+
+  &__text {
+    padding: 80px 0 0 72px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+.GallerysArt {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__container {
+    display: grid;
+    grid: auto / 1fr 1fr 1fr 1fr;
+    width: 100%;
+  }
+
+
+  &__item {
+    width: 260px;
+    height: 260px;
+    font-size: 20px;
+    line-height: 23px;
+    position: relative;
+    cursor: pointer;
+    background-image: url(https://sun9-5.userapi.com/impg/TRpDuGZq5i6S0_Yru6csGb4JrsYUR8ofKBv7-A/sS2BUE4DoFE.jpg?size=1080x1080&quality=95&sign=af3b47536241e2c9310bde566fc86422&type=album);
+    background-size: 100%;
+    display: flex;
+    align-content: center;
+    margin: auto;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.5);
+      transition: opacity 0.2s;
+      opacity: 45%;
+    }
+
+    &:hover::after {
+      width: 260px;
+      height: 260px;
+      opacity: 0;
+    }
+  }
+
+  &__alt {
+    color: white;
+    margin: auto;
+  }
+}
+
+.Article {
+  &__container {
+    width: 100%;
+    display: grid;
+    margin-bottom: 20px
+  }
+}
+
