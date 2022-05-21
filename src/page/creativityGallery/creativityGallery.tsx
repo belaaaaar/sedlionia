@@ -4,7 +4,5 @@ import {GalleryComponent} from "../../components/gallery/gallery";
 import {galleryUrl, creativityId} from "../../config";
 
 export const CreativityGallery: FC = () => {
-    return <>
-            <GalleryComponent url={galleryUrl + creativityId}/>
-    </>
+    return <GalleryComponent url={galleryUrl + creativityId}/>
 }

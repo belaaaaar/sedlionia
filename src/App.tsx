@@ -13,8 +13,7 @@ import {Contacts} from "./page/contacts/contacts";
 import {CreativityGallery} from "./page/creativityGallery/creativityGallery";
 
 function App() {
-    return (
-        <BrowserRouter>
+    return <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Main/>}/>
                 <Route path="/tattoo-gallery" element={<TattooGallery/>}/>
@@ -25,7 +24,6 @@ function App() {
                 <Route path="/contacts" element={<Contacts/>}/>
             </Routes>
         </BrowserRouter>
-    );
 }
 
 export default App;

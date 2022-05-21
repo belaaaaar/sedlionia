@@ -4,9 +4,8 @@ import './header.scss';
 import rabbit from '../../image/rabbit.png';
 import offergif from '../../image/video.gif';
 import {Mediaicons} from "../mediaicons/mediaicons";
-import { Layout } from "../layout/layout";
 
-const Social: FC = (props) => {
+const Social: FC = () => {
     return <>
         <div className="social">
             <div className="social__tag">#ГрустныйЛёня</div>
@@ -15,7 +14,7 @@ const Social: FC = (props) => {
     </>
 }
 
-const Offer: FC = (props) => {
+const Offer: FC = () => {
     return <>
         <div className="offer">
             <div className="offer__left">
@@ -39,14 +38,15 @@ const Offer: FC = (props) => {
     </>
 }
 
-export const Header: FC = (props) => {
+export const Header: FC = () => {
     return <div className="header_background">
         <div className="header">
-            <Layout>
+            <div className="header__content">
                 <Social></Social>
                 <Offer></Offer>
-            </Layout>
+            </div>
         </div>
     </div>
+
 
 }

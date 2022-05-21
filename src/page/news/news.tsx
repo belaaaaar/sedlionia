@@ -1,8 +1,6 @@
 import React, {FC, useEffect, useState} from "react";
 
 import './news.scss';
-import {Menu} from "../../components/menu/menu";
-import {Footer} from "../../components/footer/footer";
 import {Vkpost} from "../../components/vkpost/vkpost";
 import {Layout} from "../../components/layout/layout";
 
@@ -25,17 +23,15 @@ export const News: FC = () => {
             });
     }, [])
     return <div>
-        <Menu/>
         <Layout>
             <div className="Article">
                 <h1 className="title">Новости</h1>
-                <div className="Article__container">
+                <div className="row ">
                     {posts.map((post, index) => {
                         return <Vkpost key={index} target={"vkpostid" + post.id} name={post.name}/>
                     })}
                 </div>
             </div>
         </Layout>
-        <Footer/>
     </div>
 }

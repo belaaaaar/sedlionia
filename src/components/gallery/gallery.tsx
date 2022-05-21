@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {Menu} from "../../components/menu/menu";
 
 import './gallery.scss';
-import {ModalForGallery} from "../../components/modalforgallery/modalforgallery";
-import {Footer} from "../../components/footer/footer";
+import {ModalForGallery} from "../modalforgallery/modalforgallery";
 import {Layout} from "../layout/layout";
 
 type ImagesResponse = {
@@ -21,6 +19,11 @@ export const GalleryComponent = ({url}: GalleryProps) => {
     const [imgId, setImgId] = useState(0);
     const [modal, setModal] = useState(false);
     const onClose = () => setModal(false)
+    const [loading, setLoading] = React.useState(true)
+
+    setTimeout(() => {
+        setLoading(false)
+    }, 1000)
 
     const onRight = () => {
         if (imgId < gallery.length - 1) {
@@ -28,7 +31,7 @@ export const GalleryComponent = ({url}: GalleryProps) => {
                 return ++id;
             });
         } else {
-            setImgId((id) => {
+            setImgId(() => {
                 return 0;
             });
         }
@@ -41,8 +44,8 @@ export const GalleryComponent = ({url}: GalleryProps) => {
                 return --id;
             });
         } else {
-            setImgId((id) => {
-                return gallery.length -1;
+            setImgId(() => {
+                return gallery.length - 1;
             });
         }
     }
@@ -60,21 +63,20 @@ export const GalleryComponent = ({url}: GalleryProps) => {
     return <>
         <ModalForGallery onClose={onClose} onRight={onRight} onLeft={onLeft} content={gallery[imgId]?.url || ""}
                          visible={modal}/>
-        <Menu/>
         <Layout>
-            <div className="gallery">
-                <div className="gallery__background">
+            <div className={loading ? "nothing" : "gallery"}>
+                <div className="row mb-4">
+                    <h1 className="title"> {} </h1>
                     {gallery.map((link, index) => {
-                        return <div key={index} className="gallery__block" onClick={() => {
+                        return <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12 g-4" onClick={() => {
                             setImgId(index)
                             setModal(true)
                         }}>
-                            <img className="gallery__img" src={link.url} alt=""/>
+                            <img className="gallery__img " src={link.url} alt=""/>
                         </div>
                     })}
                 </div>
             </div>
         </Layout>
-        <Footer/>
     </>
 }

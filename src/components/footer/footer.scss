@@ -8,6 +8,7 @@
     align-items: center;
     justify-items: center;
   }
+
   &__content {
     display: grid;
     grid-template: 1fr /auto auto;
@@ -15,6 +16,7 @@
     justify-items: center;
     column-gap: 20px;
   }
+
   &__address {
     display: flex;
     align-items: center;

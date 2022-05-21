@@ -3,8 +3,6 @@ import master from "../../image/master.png";
 import {Header} from "../../components/header/header";
 
 import './main.scss';
-import {Menu} from "../../components/menu/menu";
-import {Footer} from "../../components/footer/footer";
 import {Vkpost} from "../../components/vkpost/vkpost";
 import {useNavigate} from "react-router-dom";
 import {Layout} from "../../components/layout/layout";
@@ -42,40 +40,45 @@ export const Main: FC = () => {
                 setPosts(data.Posts);
             });
     }, [])
-    return <div>
+
+    return <>
         <Header/>
-        <Menu/>
         <Layout>
             <div className="wrapper">
                 <div className="AboutMaster">
                     <h1 className="title">О мастере</h1>
-                    <div className="AboutMaster__container">
-                        <img src={master} alt="" className="AboutMaster__photo"/>
-                        <div className="AboutMaster__text">Привет, Я занимаемся пирсингом и татуировками в Челябинске, а
-                            это блог, посвящен моему хобби и творчеству. Здесь Вы можете увидеть мои новые работы
+                    <div className="AboutMaster__container row">
+                        <div className="col-sm-12 col-md-6 ">
+                            <img src={master} alt="" className="AboutMaster__photo"/>
+                        </div>
+                        <div className="col-sm-12 col-md-6">
+                            <div className="AboutMaster__text d-block">Привет, Я занимаюсь пирсингом и татуировками в
+                                Челябинске, а
+                                это блог, посвящен моему хобби и творчеству. Здесь Вы можете увидеть мои новые работы
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="GallerysArt">
                     <h1 className="title">Галлереи моего творчества</h1>
-                    <div className="GallerysArt__container">
-                        <div className="GallerysArt__item" onClick={routeSketch}>
-                            <div className="GallerysArt__alt">Эскизы</div>
+                    <div className="row">
+                        <div className="GallerysArt__item col-lg-3 col-md-6 col-sm-12 col-12 my-2" onClick={routeSketch}>
+                            <div className="GallerysArt__alt d-block ">Эскизы</div>
                         </div>
-                        <div className="GallerysArt__item" onClick={routeTatoo}>
-                            <div className="GallerysArt__alt">Тату</div>
+                        <div className="GallerysArt__item col-lg-3 col-md-6 col-sm-12 col-12 my-2" onClick={routeTatoo}>
+                            <div className="GallerysArt__alt d-block ">Тату</div>
                         </div>
-                        <div className="GallerysArt__item" onClick={routePiercing}>
-                            <div className="GallerysArt__alt">Пирсинг</div>
+                        <div className="GallerysArt__item col-lg-3 col-md-6 col-sm-12 col-12 my-2" onClick={routePiercing}>
+                            <div className="GallerysArt__alt d-block ">Пирсинг</div>
                         </div>
-                        <div className="GallerysArt__item" onClick={routeNews}>
-                            <div className="GallerysArt__alt">Блог</div>
+                        <div className="GallerysArt__item col-lg-3 col-md-6 col-sm-12 col-12 my-2" onClick={routeNews}>
+                            <div className="GallerysArt__alt d-block ">Блог</div>
                         </div>
                     </div>
                 </div>
                 <div className="Article">
                     <h1 className="title">Новости</h1>
-                    <div className="Article__container">
+                    <div className="row">
                         {posts.map((post, index) => {
                             return <Vkpost key={index} target={"vkpostid" + post.id} name={post.name}/>
                         })}
@@ -83,6 +86,5 @@ export const Main: FC = () => {
                 </div>
             </div>
         </Layout>
-        <Footer/>
-    </div>
+    </>
 }

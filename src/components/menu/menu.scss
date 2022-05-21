@@ -13,7 +13,7 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-template: auto/ auto auto auto auto auto auto auto;
+  grid-template: auto/ auto auto auto auto auto auto auto auto;
   position: static;
   &__item {
     padding: 15px;
@@ -30,7 +30,6 @@
 
 .burger {
   display: none;
-
 }
 
 .underline {
@@ -55,7 +54,6 @@
     display: grid;
     justify-content: center;
     align-content: center;
-    grid-template: auto/ auto;
     padding: 10px;
     font-size: 26px;
     line-height: 40px;

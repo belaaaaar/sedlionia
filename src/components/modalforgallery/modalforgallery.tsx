@@ -2,7 +2,6 @@ import React from "react";
 import './modalforgallery.scss';
 import sliderarrowL from '../../image/ArrowL.svg';
 import sliderarrowR from '../../image/ArrowR.svg';
-import cross from '../../image/cross.svg';
 
 
 interface ModalProps {
@@ -46,7 +45,7 @@ export const ModalForGallery = ({
     return (
         <div className='modal no-select' onClick={onClose}>
             <div className='modal__content' onClick={event => event.stopPropagation()}>
-                <img className='modal__cross' src={cross} alt=""/>
+                {/*<img className='modal__cross' src={cross} alt=""/>*/}
                 <div className="arrow arrow__left" onClick={onLeft}><img className='arrow__img' src={sliderarrowL} alt=""/></div>
                 <img className='img' src={content} alt=""/>
                 <div className="arrow arrow__right" onClick={onRight}><img className='arrow__img' src={sliderarrowR} alt=""/></div>
